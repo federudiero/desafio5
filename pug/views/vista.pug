@@ -1,0 +1,28 @@
+html
+    head
+        title Vista de Productos
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous")
+        include style/style.pug
+    body
+        div(class="container mt-3")
+            div.jumbotron
+                h1 Vista de Productos
+                br
+                if hayProductos
+                    div.table-responsive
+                        table.table.table-dark
+                            tr
+                                th Nombre
+                                th Precio
+                                th Foto
+                            tr
+                            each producto in productos
+                                tr
+                                    td= producto.title
+                                    td= producto.price
+                                    td= producto.thumbnail
+                     
+                else
+                    h3.alert.alert-warning No se encontraron productos
+                br
+                a(href="/" type="button").btn.btn-primary Cargar un nuevo producto
